@@ -1,0 +1,46 @@
+:root{
+  --spacing: 10px;
+};
+
+.mnv-ec-share {
+  padding:10px;
+}
+.mnv-ec-share h3 {
+  color:#fff;
+  font:18px Officina, sans-serif;
+  margin:0;
+  text-transform:uppercase;
+  -webkit-font-smoothing: antialiased;
+}
+.mnv-ec-share a {
+  margin:0 10px 0 0;
+  width:32px;
+  height:32px;
+}
+.mnv-ec-share.use-svg a svg {
+  fill:#fff;
+  width:32px;
+  height:32px;
+}
+.mnv-ec-share.use-svg a:hover svg {
+  fill:#4a4a4a;
+}
+
+.mnv-ec-share.use-svg .svgMap {
+  display: none;
+}
+
+.mnv-ec-share.use-img a {
+  background: #929ca2;
+  border-radius: 32px;
+}
+
+.mnv-ec-share.use-img.horizontal a {
+  display: inline-block;
+  margin-right: var(--spacing);
+}
+
+.mnv-ec-share.use-img.vertical a {
+  display: block;
+  margin-bottom: var(--spacing);
+}
