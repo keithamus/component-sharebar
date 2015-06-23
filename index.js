@@ -2,67 +2,75 @@ import React from 'react';
 
 export default class ShareBar extends React.Component {
 
-  propTypes: {
-    title: React.propTypes.string,
-    titleTag: React.propTypes.string,
-
+  static propTypes = {
+    title: React.PropTypes.string,
+    titleTag: React.PropTypes.string
   }
 
-  static get defaultProps() {
-    return {
-      useSvg: false,
-      layout: 'horizontal',
-      icons: [
-        {
-          href: "http://www.facebook.com/sharer/sharer.php?u=http://election.economist.com",
-          title: "Share on Facebook",
-          className: "fb",
-          src: "images/socialicons/facebook.png"
-        },
-        {
-          href: "https://twitter.com/intent/tweet?url=http://election.economist.com",
-          title: "Share on Twitter",
-          className: "twitter",
-          src: "images/socialicons/twitter.png"
-        },
-        {
-          href: "https://plus.google.com/share?url=http://election.economist.com",
-          title: "Share on Google Plus",
-          className: "gplus",
-          src: "images/socialicons/googleplus.png"
-        },
-        {
-          href: "https://www.linkedin.com/cws/share?url=http://election.economist.com",
-          title: "Linked In",
-          className: "linkedin",
-          src: "images/socialicons/linkedin.png"
-        },
-        {
-          href: "whatsapp://send?text=http://election.economist.com",
-          title: "",
-          className: "whatsapp",
-          src: "images/socialicons/whatsapp.png"
-        },
-        {
-          href: "http://www.economist.com/node/21644150/email/",
-          title: "Email a friend",
-          className: "mail",
-          src: "images/socialicons/mail.png"
-        }
-      ]
-    }
+  state = {
+    isMobile: 'no-mobile'
   }
 
-  constructor(props) {
-    super(props);
+  static defaultProps = {
+    useSvg: false,
+    layout: 'horizontal',
+    icons: [
+      {
+        href: "http://www.facebook.com/sharer/sharer.php?u=http://election.economist.com",
+        title: "Share on Facebook",
+        className: "fb",
+        src: "http://cdn.static-economist.com/sites/default/files/external/components/assets/images/socialicons/facebook.png"
+      },
+      {
+        href: "https://twitter.com/intent/tweet?url=http://election.economist.com",
+        title: "Share on Twitter",
+        className: "twitter",
+        src: "http://cdn.static-economist.com/sites/default/files/external/components/assets/images/socialicons/twitter.png"
+      },
+      {
+        href: "https://plus.google.com/share?url=http://election.economist.com",
+        title: "Share on Google Plus",
+        className: "gplus",
+        src: "http://cdn.static-economist.com/sites/default/files/external/components/assets/images/socialicons/googleplus.png"
+      },
+      {
+        href: "https://www.linkedin.com/cws/share?url=http://election.economist.com",
+        title: "Linked In",
+        className: "linkedin",
+        src: "http://cdn.static-economist.com/sites/default/files/external/components/assets/images/socialicons/linkedin.png"
+      },
+      {
+        href: "whatsapp://send?text=http://election.economist.com",
+        title: "",
+        className: "whatsapp",
+        src: "http://cdn.static-economist.com/sites/default/files/external/components/assets/images/socialicons/whatsapp.png"
+      },
+      {
+        href: "http://www.economist.com/node/21644150/email/",
+        title: "Email a friend",
+        className: "mail",
+        src: "http://cdn.static-economist.com/sites/default/files/external/components/assets/images/socialicons/mail.png"
+      }
+    ]
   }
 
   componentWillMount(){
     if(this.props.title){
       this.props.titleTag = <h3>{this.props.title}</h3>
-    } else {
-      this.props.titleTag = '';
     }
+    if (typeof navigator !== 'undefined') {
+      this.setState({
+        isMobile: (navigator.userAgent.match(/Android|iPhone/i) && !navigator.userAgent.match(/iPod|iPad/i)) ? 'mobile' : 'no-mobile'
+      });
+    }
+  }
+
+  _handleClick(event) {
+    event.preventDefault();
+    if(event.target.parentNode.className!=='mail' || event.target.parentNode.className!=='twitter'){
+      window.open(event.target.parentNode.getAttribute('href'), event.target.parentNode.getAttribute('target'), "scrollbars=1,resizable=1,height=550,width=550");
+    }
+    event.stopPropagation();
   }
 
   render() {
@@ -108,17 +116,17 @@ export default class ShareBar extends React.Component {
                 </defs>`
 
     return (
-      <div className={"mnv-ec-share " + ((this.props.useSvg) ? 'use-svg' : 'use-img') + " " + this.props.layout }>
-        {this.props.useSvg ? <svg className="svgMap" width="0" height="0" version="1.1" dangerouslySetInnerHTML={{__html: svg }}></svg> : "" }
-        {this.props.titleTag}
+      <div className={`mnv-ec-share ${this.props.useSvg ? 'use-svg' : 'use-img'} ${this.props.layout} ${this.state.isMobile}`}>
+        {this.props.useSvg ? <svg className="svgMap" width="0" height="0" version="1.1" dangerouslySetInnerHTML={{__html: svg }}></svg> : null }
+        {this.props.titleTag ? this.props.titleTag : null}
         <div className="mnv-ec-share-icons">
-            {this.props.icons.map(function(icon, key){
+            {this.props.icons.map((icon, key) => {
             return (
-                    <a key={key} href={icon.href} title={icon.title} className={icon.className} target="_blank">
+                    <a key={key} onClick={::this._handleClick} href={icon.href} title={icon.title} className={icon.className} target="_blank">
                       {this.props.useSvg ? <svg viewBox="0 0 100 100" dangerouslySetInnerHTML={{__html: svgSymbols[icon.className] }}></svg> : <img src={icon.src} /> }
                     </a>
                   );
-            }, this)}
+            })}
         </div>
       </div>
     );
