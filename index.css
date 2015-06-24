@@ -5,15 +5,16 @@
   --icon-size-mobile: 24px;
 };
 
-.mnv-ec-share {
-  padding:10px;
-}
 .mnv-ec-share h3 {
   color:#fff;
   font:18px Officina, sans-serif;
   margin:0;
   text-transform:uppercase;
   -webkit-font-smoothing: antialiased;
+}
+.mnv-ec-share a,
+.mnv-ec-share img {
+  border: none;
 }
 .mnv-ec-share a {
   margin:0 10px 0 0;

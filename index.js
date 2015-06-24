@@ -4,7 +4,8 @@ export default class ShareBar extends React.Component {
 
   static propTypes = {
     title: React.PropTypes.string,
-    titleTag: React.PropTypes.string
+    titleTag: React.PropTypes.string,
+    customClass: React.PropTypes.string
   }
 
   state = {
@@ -66,11 +67,10 @@ export default class ShareBar extends React.Component {
   }
 
   _handleClick(event) {
-    event.preventDefault();
+    (event.preventDefault) ? event.preventDefault() : (event.returnValue = false);
     if(event.target.parentNode.className!=='mail' || event.target.parentNode.className!=='twitter'){
       window.open(event.target.parentNode.getAttribute('href'), event.target.parentNode.getAttribute('target'), "scrollbars=1,resizable=1,height=550,width=550");
     }
-    event.stopPropagation();
   }
 
   render() {
@@ -116,7 +116,7 @@ export default class ShareBar extends React.Component {
                 </defs>`
 
     return (
-      <div className={`mnv-ec-share ${this.props.useSvg ? 'use-svg' : 'use-img'} ${this.props.layout} ${this.state.isMobile}`}>
+      <div className={`mnv-ec-share ${this.props.useSvg ? 'use-svg' : 'use-img'} ${this.props.layout} ${this.state.isMobile} ${this.props.customClass}`}>
         {this.props.useSvg ? <svg className="svgMap" width="0" height="0" version="1.1" dangerouslySetInnerHTML={{__html: svg }}></svg> : null }
         {this.props.titleTag ? this.props.titleTag : null}
         <div className="mnv-ec-share-icons">
