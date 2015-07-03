@@ -74,7 +74,7 @@ export default class ShareBar extends React.Component {
         type: "mail",
         src: "http://cdn.static-economist.com/sites/default/files/external/components/assets/images/socialicons/mail.png",
         s: {
-          events: "event97,event81"
+          events: "event81"
         }
       }
     ],
@@ -115,10 +115,13 @@ export default class ShareBar extends React.Component {
 
   _handleClick(icon, event) {
     (event.preventDefault) ? event.preventDefault() : (event.returnValue = false);
-    if(event.target.className!=='mail' || event.target.className!=='twitter'){
+    // && event.target.className!='twitter'
+    if(event.target.className=='mail'){
+      window.open(event.target.getAttribute('href'), "_blank");
+    } else {
       window.open(event.target.getAttribute('href'), event.target.getAttribute('target'), "scrollbars=1,resizable=1,height=550,width=550");
     }
-    this._omnitureRegisterClick(event.target, icon);
+    //this._omnitureRegisterClick(event.target, icon);
   }
 
   _omnitureRegisterClick(link, icon) {
