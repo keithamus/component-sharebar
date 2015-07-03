@@ -77,29 +77,7 @@ export default class ShareBar extends React.Component {
           events: "event81"
         }
       }
-    ],
-    s: {
-      visitorNamespace: "economist",
-      trackingServer: "stats.economist.com",
-      trackingServerSecure: "sstats.economist.com",
-      dc: "122",
-      linkTrackVars: "events,pageName,prop45,eVar52,eVar53",
-      linkTrackEvents: "",
-      events: "",
-      pageName: "This is the pageName"
-    },
-    Omniture: {
-      position: "share-bar",
-      page: "Name of the page",
-      hostpage: "hostpage",
-      linkinfo: ["the_world_if","section","article headline"]
-    }
-  }
-  // TODO This part need to be implemented at page level
-  componentDidMount(){
-    window.s = s_gi((process.env.NODE_ENV === "production") ? 'economistcomprod' :  'economistcomdev');
-    // Add here s variables for the page
-    window.s = Object.assign(s, this.props.s);
+    ]
   }
 
   componentWillMount(){
@@ -115,21 +93,21 @@ export default class ShareBar extends React.Component {
 
   _handleClick(icon, event) {
     (event.preventDefault) ? event.preventDefault() : (event.returnValue = false);
-    // && event.target.className!='twitter'
     if(event.target.className=='mail'){
       window.open(event.target.getAttribute('href'), "_blank");
     } else {
       window.open(event.target.getAttribute('href'), event.target.getAttribute('target'), "scrollbars=1,resizable=1,height=550,width=550");
     }
-    //this._omnitureRegisterClick(event.target, icon);
+    this._omnitureRegisterClick(event.target, icon);
   }
 
-  _omnitureRegisterClick(link, icon) {
+  _omnitureRegisterClick(link, customVars) {
     var hublinkinfo = this.props.Omniture.linkinfo, hostpage = this.props.Omniture.hostpage, linkPosition = this.props.Omniture.position;
     s = Object.assign(s, this.props.s);
-    s.linkTrackEvents = s.events = "event97," + icon.s.events;
-    s.prop45 = hublinkinfo.join('>') + ">" + icon.title + ">" + linkPosition + ">" + icon.title;
-    s.eVar52 = s.eVar53 = hublinkinfo.join('>') + ">"+ icon.title + ">" + hostpage + ">" + linkPosition + ">" + icon.title;
+    s.linkTrackEvents = s.events = "event97," + customVars.s.events;
+    s.prop45 = hublinkinfo[0] + ">" + linkPosition + ">" + customVars.title;
+    var root = hublinkinfo.shift();
+    s.eVar52 = s.eVar53 = root + ">" + hostpage + ">" + linkPosition + ">" + hublinkinfo.join('>') + ">" + customVars.title;
     s.tl(s.prop45,"o",s.prop45);
   }
 
