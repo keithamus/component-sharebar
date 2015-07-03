@@ -17,8 +17,10 @@ var pageSetting = {
 
 export default (
   <div>
+    <h1>SVG version</h1>
     <ShareBar {...pageSetting}></ShareBar>
     <ShareBar layout="vertical"></ShareBar>
+    <h1>IMG version</h1>
     <ShareBar useSvg={false}></ShareBar>
     <ShareBar useSvg={false} layout="vertical"></ShareBar>
     <Omniture />

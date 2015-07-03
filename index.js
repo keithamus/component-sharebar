@@ -16,6 +16,9 @@ export default class ShareBar extends React.Component {
   static defaultProps = {
     useSvg: true,
     layout: 'horizontal',
+    icon: {
+      color: "#FFFFFF"
+    },
     icons: [
       {
         href: "http://www.facebook.com/sharer/sharer.php?u=http://election.economist.com",
@@ -119,7 +122,7 @@ export default class ShareBar extends React.Component {
             {this.props.icons.map((icon, key) => {
             return (
                     <a key={key} onClick={this._handleClick.bind(this, icon)} href={icon.href} title={icon.title} className={icon.className} target="_blank">
-                      {this.props.useSvg ? <Icon type={icon.type} /> : <img src={icon.src} /> }
+                      {this.props.useSvg ? <Icon type={icon.type} color={this.props.icon.color} /> : <img src={icon.src} /> }
                     </a>
                   );
             })}
