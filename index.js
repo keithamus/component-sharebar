@@ -115,8 +115,8 @@ export default class ShareBar extends React.Component {
 
   _handleClick(icon, event) {
     (event.preventDefault) ? event.preventDefault() : (event.returnValue = false);
-    if(event.target.parentNode.className!=='mail' || event.target.parentNode.className!=='twitter'){
-      window.open(event.target.parentNode.getAttribute('href'), event.target.parentNode.getAttribute('target'), "scrollbars=1,resizable=1,height=550,width=550");
+    if(event.target.className!=='mail' || event.target.className!=='twitter'){
+      window.open(event.target.getAttribute('href'), event.target.getAttribute('target'), "scrollbars=1,resizable=1,height=550,width=550");
     }
     this._omnitureRegisterClick(event.target, icon);
   }
@@ -127,7 +127,6 @@ export default class ShareBar extends React.Component {
     s.linkTrackEvents = s.events = "event97," + icon.s.events;
     s.prop45 = hublinkinfo.join('>') + ">" + icon.title + ">" + linkPosition + ">" + icon.title;
     s.eVar52 = s.eVar53 = hublinkinfo.join('>') + ">"+ icon.title + ">" + hostpage + ">" + linkPosition + ">" + icon.title;
-    console.log(s);
     s.tl(s.prop45,"o",s.prop45);
   }
 

@@ -1,5 +1,6 @@
 .mnv-ec-share img {
   border: none;
+  pointer-events: none;
 }
 
 .mnv-ec-share.use-img a {
