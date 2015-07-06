@@ -1,5 +1,5 @@
 import ShareBar from './index';
-import Omniture from './../component-omniture';
+import Omniture from '@economist/component-omniture';
 import React from 'react';
 
 var pageSetting = {
