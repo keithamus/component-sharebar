@@ -1,48 +1,55 @@
-.mnv-ec-share.cube {
-  height: var(--icon-size);
-}
-.mnv-ec-share.cube .default-state,
-.mnv-ec-share.cube .mnv-ec-share-icons {
-  padding: 4px;
+:root {
+    --padding: 4px;
+};
+.cube .default-state,
+.cube .mnv-ec-share-icons {
+  padding: var(--padding);
+  box-sizing: border-box;
 }
 .cube {
   transition: all 200ms ease;
   transform-style: preserve-3d;
+  height: calc(var(--icon-size)+(var(--padding)*2));
 }
-.default-state svg {
-  height: inherit;
+.cube svg {
+  margin: var(--padding);
 }
-
 .default-state {
-  transform: translateZ(calc(var(--icon-size)/2));
+  transform: translateZ(calc(var(--icon-size)/2+var(--padding)));
 }
 .flip-to-top .mnv-ec-share-icons {
-  transform: rotateX(90deg) translateZ(calc(var(--icon-size)*1.5));
+  transform: rotateX(90deg) translateZ(calc(var(--icon-size)*1.5+var(--padding)));
 }
 .flip-to-bottom .mnv-ec-share-icons {
-  transform: rotateX(-90deg) translateZ(-calc(var(--icon-size)/2));
+  transform: rotateX(-90deg) translateZ(-calc(var(--icon-size)/2+var(--padding)));
 }
 
 @media all and (max-width: 800px){
+  .mnv-ec-share.cube {
+    height: calc(var(--icon-size-tablet)+calc(var(--padding)*2));
+  }
   .default-state {
-    transform: translateZ(calc(var(--icon-size-tablet)/2));
+    transform: translateZ(calc(var(--icon-size-tablet)/2+var(--padding)));
   }
   .flip-to-top .mnv-ec-share-icons {
-    transform: rotateX(90deg) translateZ(calc(var(--icon-size-tablet)*1.5));
+    transform: rotateX(90deg) translateZ(calc(var(--icon-size-tablet)*1.5+var(--padding)));
   }
   .flip-to-bottom .mnv-ec-share-icons {
-    transform: rotateX(-90deg) translateZ(-calc(var(--icon-size-tablet)/2));
+    transform: rotateX(-90deg) translateZ(-calc(var(--icon-size-tablet)/2+var(--padding)));
   }
 }
 @media all and (max-width: 568px){
+  .mnv-ec-share.cube {
+    height: calc(var(--icon-size-mobile)+(var(--padding)*2));
+  }
   .default-state {
-    transform: translateZ(calc(var(--icon-size-mobile)/2));
+    transform: translateZ(calc(var(--icon-size-mobile)/2+var(--padding)));
   }
   .flip-to-top .mnv-ec-share-icons {
-    transform: rotateX(90deg) translateZ(calc(var(--icon-size-mobile)*1.5));
+    transform: rotateX(90deg) translateZ(calc(var(--icon-size-mobile)*1.5+var(--padding)));
   }
   .flip-to-bottom .mnv-ec-share-icons {
-    transform: rotateX(-90deg) translateZ(-calc(var(--icon-size-mobile)/2));
+    transform: rotateX(-90deg) translateZ(-calc(var(--icon-size-mobile)/2+var(--padding)));
   }
 }
 
