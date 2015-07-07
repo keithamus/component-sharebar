@@ -18,7 +18,6 @@
   fill: #929ca2;
 }
 
-.mnv-ec-share a,
 .mnv-ec-share svg {
   width: var(--icon-size);
   height: var(--icon-size);
@@ -39,7 +38,6 @@
   .mnv-ec-share a {
     margin:0 10px 0 0;
   }
-  .mnv-ec-share a,
   .mnv-ec-share svg {
     width: var(--icon-size-tablet);
     height: var(--icon-size-tablet);
@@ -50,7 +48,6 @@
     margin:0 10px 0 0;
     border-radius: calc(var(--icon-size-mobile)/2);
   }
-  .mnv-ec-share a,
   .mnv-ec-share svg {
     width: var(--icon-size-mobile);
     height: var(--icon-size-mobile);
