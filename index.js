@@ -16,7 +16,6 @@ export default class ShareBar extends React.Component {
   static defaultProps = {
     layout: 'horizontal',
     background: false,
-    fxDefaultStateBackground: false,
     useFX: false,
     fxDirection: '',
     fxType: '',
@@ -116,7 +115,7 @@ export default class ShareBar extends React.Component {
     return (
       <div className={`mnv-ec-share ${this.props.layout} ${this.state.isMobile} ${this.props.customClass} ${this.props.fxDirection} ${this.props.fxType}`}>
         {this.props.titleTag ? this.props.titleTag : null}
-        {this.props.useFX ? <div className="default-state" style={(this.props.fxDefaultStateBackground) ? { background: this.props.fxDefaultStateBackground } : null }><Icon type="share" color={this.props.icon.color} background="none" /></div> : null}
+        {this.props.useFX ? <div className="default-state"><Icon type="share" color={this.props.icon.color} background="none" /></div> : null}
         <div className="mnv-ec-share-icons" style={(this.props.background) ? { background: this.props.background } : null }>
             {this.props.icons.map((icon, key) => {
             return (
