@@ -14,8 +14,12 @@ export default class ShareBar extends React.Component {
   }
 
   static defaultProps = {
-    useSvg: true,
     layout: 'horizontal',
+    background: false,
+    fxDefaultStateBackground: false,
+    useFX: false,
+    fxDirection: '',
+    fxType: '',
     icon: {
       color: "#FFFFFF"
     },
@@ -25,7 +29,6 @@ export default class ShareBar extends React.Component {
         title: "Share on Facebook",
         className: "fb",
         type: "facebook",
-        src: "http://cdn.static-economist.com/sites/default/files/external/components/assets/images/socialicons/facebook.png",
         s: {
           events: "event76"
         }
@@ -35,7 +38,6 @@ export default class ShareBar extends React.Component {
         title: "Share on Twitter",
         className: "twitter",
         type: "twitter",
-        src: "http://cdn.static-economist.com/sites/default/files/external/components/assets/images/socialicons/twitter.png",
         s: {
           events: "event31"
         }
@@ -45,7 +47,6 @@ export default class ShareBar extends React.Component {
         title: "Share on Google Plus",
         className: "gplus",
         type: "googleplus",
-        src: "http://cdn.static-economist.com/sites/default/files/external/components/assets/images/socialicons/googleplus.png",
         s: {
           events: "event35"
         }
@@ -55,7 +56,6 @@ export default class ShareBar extends React.Component {
         title: "Linked In",
         className: "linkedin",
         type: "linkedin",
-        src: "http://cdn.static-economist.com/sites/default/files/external/components/assets/images/socialicons/linkedin.png",
         s: {
           events: "event49"
         }
@@ -65,7 +65,6 @@ export default class ShareBar extends React.Component {
         title: "",
         className: "whatsapp",
         type: "whatsapp",
-        src: "http://cdn.static-economist.com/sites/default/files/external/components/assets/images/socialicons/whatsapp.png",
         s: {
           events: ""
         }
@@ -75,7 +74,6 @@ export default class ShareBar extends React.Component {
         title: "Email a friend",
         className: "mail",
         type: "mail",
-        src: "http://cdn.static-economist.com/sites/default/files/external/components/assets/images/socialicons/mail.png",
         s: {
           events: "event81"
         }
@@ -116,13 +114,14 @@ export default class ShareBar extends React.Component {
 
   render() {
     return (
-      <div className={`mnv-ec-share ${this.props.useSvg ? 'use-svg' : 'use-img'} ${this.props.layout} ${this.state.isMobile} ${this.props.customClass}`}>
+      <div className={`mnv-ec-share ${this.props.layout} ${this.state.isMobile} ${this.props.customClass} ${this.props.fxDirection} ${this.props.fxType}`}>
         {this.props.titleTag ? this.props.titleTag : null}
-        <div className="mnv-ec-share-icons">
+        {this.props.useFX ? <div className="default-state" style={(this.props.fxDefaultStateBackground) ? { background: this.props.fxDefaultStateBackground } : null }><Icon type="share" color={this.props.icon.color} background="none" /></div> : null}
+        <div className="mnv-ec-share-icons" style={(this.props.background) ? { background: this.props.background } : null }>
             {this.props.icons.map((icon, key) => {
             return (
                     <a key={key} onClick={this._handleClick.bind(this, icon)} href={icon.href} title={icon.title} className={icon.className} target="_blank">
-                      {this.props.useSvg ? <Icon type={icon.type} color={this.props.icon.color} /> : <img src={icon.src} /> }
+                      <Icon type={icon.type} color={this.props.icon.color} />
                     </a>
                   );
             })}

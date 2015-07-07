@@ -18,11 +18,14 @@ var pageSetting = {
 export default (
   <div>
     <h1>SVG version</h1>
-    <ShareBar {...pageSetting}></ShareBar>
+    <ShareBar {...pageSetting} background="#CCFFDD"></ShareBar>
+    <hr/>
     <ShareBar layout="vertical"></ShareBar>
-    <h1>IMG version</h1>
-    <ShareBar useSvg={false}></ShareBar>
-    <ShareBar useSvg={false} layout="vertical"></ShareBar>
+    <hr/>
     <Omniture />
+    <h1>Flip version</h1>
+    <ShareBar useFX={true} fxDirection="flip-to-top" fxType="cube" background="#333333" fxDefaultStateBackground="#999999"></ShareBar>
+    <hr/>
+    <ShareBar useFX={true} fxDirection="flip-to-bottom" fxType="cube" background="#333333" fxDefaultStateBackground="#999999"></ShareBar>
   </div>
 );
