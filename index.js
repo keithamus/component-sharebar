@@ -91,7 +91,7 @@ export default class ShareBar extends React.Component {
 
   constructor() {
     super();
-    this.state = { isMobile: 'no-mobile' };
+    this.state = { isMobile: 'no-mobile', fxState: 'fxOff' };
   }
 
   componentWillMount() {
@@ -136,6 +136,10 @@ export default class ShareBar extends React.Component {
     linkPosition + '>' + hublinkinfo.join('>') + '>' + customVars.title;
     window.s.tl(window.s.prop45, 'o', window.s.prop45);
   }
+  /* This functionality is required for touch devices when hover is not triggered */
+  runEffect() {
+    this.setState({ fxState: 'fxOn' });
+  }
 
   render() {
     return (
@@ -144,9 +148,10 @@ export default class ShareBar extends React.Component {
         ${this.state.isMobile}
         ${this.props.customClass}
         ${this.props.fxDirection}
-        ${this.props.fxType}`}>
+        ${this.props.fxType}
+        ${this.state.fxState}`}>
         {this.props.titleTag ? this.props.titleTag : null}
-        {this.props.useFX ? <div className="default-state">
+        {this.props.useFX ? <div className="default-state" onClick={this.runEffect.bind(this)}>
         <Icon type="share" color={this.props.icon.color} background="none" />
         </div> : null}
         <div className="mnv-ec-share-icons"

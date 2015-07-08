@@ -62,9 +62,11 @@
   }
 }
 
-.cube.flip-to-top:hover {
+.no-touch .cube.flip-to-top:hover,
+.touch .cube.fxOn.flip-to-top {
   transform: rotateX(-89deg);
 }
-.cube.flip-to-bottom:hover {
+.no-touch .cube.flip-to-bottom:hover,
+.touch .cube.fxOn.flip-to-bottom {
   transform: rotateX(89deg);
 }

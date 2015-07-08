@@ -15,6 +15,7 @@ const pageSetting = {
 };
 export default (
   <div>
+    <h2 style={{ border: 'solid red 1px' }}>Attention this component use .no-touch class by Modernizr</h2>
     <h1>SVG version</h1>
     <ShareBar {...pageSetting} background="#CCFFDD" />
     <hr/>
