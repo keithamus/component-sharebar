@@ -22,18 +22,28 @@ export default (
     <ShareBar layout="vertical" />
     <hr/>
     <Omniture />
-    <h1>Flip version</h1>
-    <ShareBar useFX={true}
-    fxDirection="flip-to-top"
-    fxType="cube"
-    background="#333333"
-    fxDefaultStateBackground="#999999" />
-    <hr/>
-    <ShareBar
-    useFX={true}
-    fxDirection="flip-to-bottom"
-    fxType="cube"
-    background="#333333"
-    fxDefaultStateBackground="#999999" />
+    <h1>Flip version (Mouseover)</h1>
+    <div className="no-touch">
+      <ShareBar useFX={true}
+      fxDirection="flip-to-top"
+      fxType="cube"
+      background="#333333"
+      fxDefaultStateBackground="#999999" />
+      <hr/>
+      <ShareBar
+      useFX={true}
+      fxDirection="flip-to-bottom"
+      fxType="cube"
+      background="#333333"
+      fxDefaultStateBackground="#999999" />
+    </div>
+    <h1>Touch version</h1>
+    <div className="touch">
+      <ShareBar useFX={true}
+      fxDirection="flip-to-top"
+      fxType="cube"
+      background="#333333"
+      fxDefaultStateBackground="#999999" />
+    </div>
   </div>
 );
