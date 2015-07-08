@@ -1,8 +1,4 @@
-@import '@economist/component-css/palette-worldif';
-
 :root {
-  --ShareBar-cube-background-default-status: var(--grey);
-  --ShareBar-cube-background-icon-bar: var(--black);
-  --Gobbet-title-background: var(--grey);
-  --Gobbet-color: var(--green);
+  --ShareBar-cube-background-default-status: var(--grey, #6e7b82);
+  --ShareBar-cube-background-icon-bar: var(--black, #000);
 }
