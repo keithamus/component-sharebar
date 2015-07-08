@@ -53,12 +53,13 @@
     height: var(--icon-size-mobile);
   }
 }
-
 .mnv-ec-share.horizontal a {
   display: inline-block;
   margin-right: var(--spacing);
 }
-
+.mnv-ec-share a svg {
+  background: #929ca2 !important;
+}
 .mnv-ec-share.vertical a {
   display: block;
   margin-bottom: var(--spacing);
@@ -83,31 +84,6 @@
 }
 .mnv-ec-share a.fb:hover svg {
   background: #3b5998 !important;
-}
-@media all and (max-width: 800px){
-  .mnv-ec-share a.fb svg {
-    background: #3b5998 !important;
-  }
-  .mnv-ec-share a.twitter svg {
-    background: #00aced !important;
-  }
-  .mnv-ec-share a.linkedin svg {
-    background: #007bb6 !important;
-  }
-  .mnv-ec-share a.gplus svg {
-    background: #dd4b39 !important;
-  }
-  .mnv-ec-share a.whatsapp svg {
-    background: #39b54a !important;
-  }
-  .mnv-ec-share a.mail svg {
-    background: #666666 !important;
-  }
-}
-@media all and (min-width: 800px){
-  .mnv-ec-share a svg {
-    background: #929ca2 !important;
-  }
 }
 .mnv-ec-share.no-mobile a.whatsapp {
   display: none !important;
