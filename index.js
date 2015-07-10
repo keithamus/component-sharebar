@@ -11,7 +11,7 @@ export default class ShareBar extends React.Component {
       Omniture: React.PropTypes.object,
       s: React.PropTypes.object,
       layout: React.PropTypes.string,
-      useFX: React.PropTypes.string,
+      useFX: React.PropTypes.bool,
       fxDirection: React.PropTypes.string,
       fxType: React.PropTypes.string,
       background: React.PropTypes.string,
@@ -23,7 +23,7 @@ export default class ShareBar extends React.Component {
   static get defaultProps() {
     return {
       layout: 'horizontal',
-      background: false,
+      background: 'none',
       useFX: false,
       fxDirection: '',
       fxType: '',
