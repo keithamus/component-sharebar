@@ -77,11 +77,13 @@
     "test:watch": "npm run test:base -- -wR min"
   },
   "dependencies": {
+    "@economist/component-icon": "^2.0.0",
     "react": "^0.13.3"
   },
   "devDependencies": {
     "@economist/component-devpack": "^2.1.1",
     "@economist/component-devserver": "^2.0.0",
+    "@economist/component-omniture": "^1.0.0",
     "@economist/component-testharness": "^1.1.0",
     "babel": "^5.5.8",
     "babelify": "^6.1.2",
