@@ -13,16 +13,11 @@
     "url": "https://github.com/the-economist-editorial/sharebar/issues"
   },
   "main": "index.js",
-  "browserify": {
-    "transform": [
-      [
-        "babelify",
-        {
-          "stage": 0
-        }
-      ]
-    ]
-  },
+  "files": [
+    "*.js",
+    "*.css",
+    "assets/*"
+  ],
   "eslintConfig": {
     "extends": "strict/react",
     "env": {
@@ -68,6 +63,7 @@
     "lint_opts": "--ignore-path .gitignore --ext .es6"
   },
   "scripts": {
+    "build": "npm-assets assets/",
     "lint": "eslint $npm_package_config_lint_opts .",
     "prepublish": "babel index.es6 --stage=0 --loose > index.js",
     "provision": "devpack-configure ./package.json",
@@ -77,11 +73,11 @@
     "test:watch": "npm run test:base -- -wR min"
   },
   "dependencies": {
-    "@economist/component-icon": "^2.0.0",
+    "@economist/component-icon": "^2.1.0",
     "react": "^0.13.3"
   },
   "devDependencies": {
-    "@economist/component-devpack": "^2.1.1",
+    "@economist/component-devpack": "^2.3.0",
     "@economist/component-devserver": "^2.0.0",
     "@economist/component-omniture": "^1.0.0",
     "@economist/component-testharness": "^1.1.0",
@@ -95,6 +91,7 @@
     "eslint-plugin-react": "^2.6.3",
     "minifyify": "^7.0.1",
     "mocha": "^2.2.5",
+    "npm-assets": "0.0.1",
     "pre-commit": "^1.0.10"
   },
   "pre-commit": [

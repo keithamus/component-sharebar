@@ -1,7 +1,5 @@
 node_modules/
 *.log
 *.js
-bundle.*
-/node_modules
-bundle.js
+assets/
 

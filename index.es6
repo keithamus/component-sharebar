@@ -35,7 +35,7 @@ export default class ShareBar extends React.Component {
           href: 'http://www.facebook.com/sharer/sharer.php?u=http://election.economist.com',
           title: 'Share on Facebook',
           className: 'fb',
-          type: 'facebook',
+          icon: 'facebook',
           s: {
             events: 'event76',
           },
@@ -44,7 +44,7 @@ export default class ShareBar extends React.Component {
           href: 'https://twitter.com/intent/tweet?url=http://election.economist.com',
           title: 'Share on Twitter',
           className: 'twitter',
-          type: 'twitter',
+          icon: 'twitter',
           s: {
             events: 'event31',
           },
@@ -53,7 +53,7 @@ export default class ShareBar extends React.Component {
           href: 'https://plus.google.com/share?url=http://election.economist.com',
           title: 'Share on Google Plus',
           className: 'gplus',
-          type: 'googleplus',
+          icon: 'googleplus',
           s: {
             events: 'event35',
           },
@@ -62,7 +62,7 @@ export default class ShareBar extends React.Component {
           href: 'https://www.linkedin.com/cws/share?url=http://election.economist.com',
           title: 'Linked In',
           className: 'linkedin',
-          type: 'linkedin',
+          icon: 'linkedin',
           s: {
             events: 'event49',
           },
@@ -71,7 +71,7 @@ export default class ShareBar extends React.Component {
           href: 'whatsapp://send?text=http://election.economist.com',
           title: '',
           className: 'whatsapp',
-          type: 'whatsapp',
+          icon: 'whatsapp',
           s: {
             events: '',
           },
@@ -80,7 +80,7 @@ export default class ShareBar extends React.Component {
           href: 'http://www.economist.com/node/21644150/email/',
           title: 'Email a friend',
           className: 'mail',
-          type: 'mail',
+          icon: 'mail',
           s: {
             events: 'event81',
           },
@@ -162,7 +162,7 @@ export default class ShareBar extends React.Component {
               <a key={key} onClick={this.handleClick.bind(this, icon)}
               href={icon.href} title={icon.title} className={icon.className}
                target="_blank">
-                <Icon type={icon.type} color={this.props.icon.color} />
+                <Icon icon={icon.icon} color={this.props.icon.color} />
               </a>
               );
             })}
