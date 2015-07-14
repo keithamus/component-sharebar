@@ -152,7 +152,7 @@ export default class ShareBar extends React.Component {
         ${this.state.fxState}`}>
         {this.props.titleTag ? this.props.titleTag : null}
         {this.props.useFX ? <div className="default-state" onClick={this.runEffect.bind(this)}>
-        <Icon type="share" color={this.props.icon.color} background="none" />
+        <Icon icon="share" color={this.props.icon.color} background="none" />
         </div> : null}
         <div className="mnv-ec-share-icons"
         style={(this.props.background) ? { background: this.props.background }
