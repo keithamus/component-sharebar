@@ -34,6 +34,12 @@
   height: inherit;
 }
 
+.mnv-ec-share-icons-container {
+  position: absolute;
+  top: 0;
+  left: 40px;
+}
+
 @media all and (max-width: 800px){
   .mnv-ec-share a {
     margin:0 10px 0 0;

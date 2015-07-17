@@ -137,11 +137,48 @@ export default class ShareBar extends React.Component {
     window.s.tl(window.s.prop45, 'o', window.s.prop45);
   }
   /* This functionality is required for touch devices when hover is not triggered */
-  runEffect() {
+
+  toggleEffect() {
+    if (this.state.fxState === 'fxOn') {
+      this.close();
+    } else {
+      this.open();
+    }
+  }
+
+  close() {
+    this.setState({ fxState: 'fxOff' });
+  }
+
+  open() {
     this.setState({ fxState: 'fxOn' });
   }
 
+
   render() {
+    let icon;
+    if (this.state.fxState === 'fxOn') {
+      icon = (
+        <div onClick={this.toggleEffect.bind(this)}>
+        <Icon icon="close" color={this.props.icon.color} background="none" onClick={this.toggleEffect.bind(this)}/>
+        </div>
+      );
+    }
+    if (this.state.fxState === 'fxOff') {
+      icon = (
+        <div onClick={this.toggleEffect.bind(this)}>
+        <Icon icon="share" color={this.props.icon.color} background="none" onClick={this.toggleEffect.bind(this)}/>
+        </div>
+      );
+    }
+    let fxPanel;
+    if (this.props.useFX) {
+      fxPanel = (
+        <div className="default-state" onClick={this.toggleEffect.bind(this)}>
+          {icon}
+        </div>
+      );
+    }
     return (
       <div className={`mnv-ec-share
         ${this.props.layout}
@@ -151,13 +188,13 @@ export default class ShareBar extends React.Component {
         ${this.props.fxType}
         ${this.state.fxState}`}>
         {this.props.titleTag ? this.props.titleTag : null}
-        {this.props.useFX ? <div className="default-state" onClick={this.runEffect.bind(this)}>
-        <Icon icon="share" color={this.props.icon.color} background="none" />
-        </div> : null}
+        {fxPanel}
         <div className="mnv-ec-share-icons"
         style={(this.props.background) ? { background: this.props.background }
         : null }>
-            {this.props.icons.map((icon, key) => {
+        {icon}
+        <div className="mnv-ec-share-icons-container">
+            {this.props.icons.map((icons, key) => {
               return (
               <a key={key} onClick={this.handleClick.bind(this, icon)}
               href={icon.href} title={icon.title} className={icon.className}
@@ -166,6 +203,7 @@ export default class ShareBar extends React.Component {
               </a>
               );
             })}
+            </div>
         </div>
       </div>
     );

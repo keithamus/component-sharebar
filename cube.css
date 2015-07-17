@@ -12,8 +12,8 @@
 }
 .cube .mnv-ec-share-icons {
   background: var(--ShareBar-cube-background-icon-bar);
-  padding-left: 20px;
-  padding-right: 20px;
+/*  padding-left: 20px;
+  padding-right: 20px;*/
 }
 .cube {
   transition: all 200ms ease;
