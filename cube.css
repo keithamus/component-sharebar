@@ -20,9 +20,9 @@
   transform-style: preserve-3d;
   height: calc(var(--icon-size)+(var(--padding)*2));
 }
-.cube svg {
+/*.cube svg {
   margin: var(--padding);
-}
+}*/
 .default-state {
   transform: translateZ(calc(var(--icon-size)/2+var(--padding)));
 }
