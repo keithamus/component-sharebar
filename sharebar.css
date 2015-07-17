@@ -37,7 +37,7 @@
 .mnv-ec-share-icons-container {
   position: absolute;
   top: 0;
-  left: 40px;
+  right: 40px;
 }
 
 @media all and (max-width: 800px){
@@ -93,4 +93,61 @@
 }
 .mnv-ec-share.no-mobile a.whatsapp {
   display: none !important;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.controls {
+  height: 38px;
+  width: 38px;
+  position: absolute;
+  z-index: 2;
+  right: 0;
+}
+
+.mnv-ec-share-icons-close-open {
+  width: 100%;
+  height: 100%;
+}
+
+.share, .close {
+  width: 100%;
+  height: 100%;
+}
+
+.share .Icon-share svg {
+  width: 37px;
+  height: 37px;
+  position: absolute;
+  top: 0;
+}
+
+.close .Icon-close svg {
+  width: 37px;
+  height: 37px;
+  position: absolute;
+  top: 0;
+}
+
+.close .Icon-close svg {
+  width: 37px;
+  height: 37px;
+  position: absolute;
+  top: 0;
+}
+
+.share[data-open="true"] {
+  display: none;
+}
+
+.close[data-open="false"] {
+  display: none;
+}
+
+.no-touch .controls {
+  pointer-events: none;
 }

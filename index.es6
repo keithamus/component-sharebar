@@ -91,7 +91,7 @@ export default class ShareBar extends React.Component {
 
   constructor() {
     super();
-    this.state = { isMobile: 'no-mobile', fxState: 'fxOff' };
+    this.state = { isMobile: 'no-mobile', fxState: 'fxOff', open: false };
   }
 
   componentWillMount() {
@@ -138,8 +138,8 @@ export default class ShareBar extends React.Component {
   }
   /* This functionality is required for touch devices when hover is not triggered */
 
-  toggleEffect() {
-    if (this.state.fxState === 'fxOn') {
+  toggleExpanded() {
+    if (this.state.open) {
       this.close();
     } else {
       this.open();
@@ -147,39 +147,37 @@ export default class ShareBar extends React.Component {
   }
 
   close() {
+    this.setState({ open: false });
     this.setState({ fxState: 'fxOff' });
   }
 
   open() {
+    this.setState({ open: true });
     this.setState({ fxState: 'fxOn' });
   }
 
 
   render() {
-    let iconpanel;
-    if (this.state.fxState === 'fxOn') {
-      iconpanel = (
-        <div onClick={this.toggleEffect.bind(this)}>
-        <Icon icon="close" color={this.props.icon.color} background="none" onClick={this.toggleEffect.bind(this)}/>
-        </div>
-      );
-    }
-    if (this.state.fxState === 'fxOff') {
-      iconpanel = (
-        <div onClick={this.toggleEffect.bind(this)}>
-        <Icon icon="share" color={this.props.icon.color} background="none" onClick={this.toggleEffect.bind(this)}/>
-        </div>
-      );
-    }
     let fxPanel;
     if (this.props.useFX) {
       fxPanel = (
-        <div className="default-state" onClick={this.toggleEffect.bind(this)}>
-          {iconpanel}
+        <div className="default-state">
         </div>
       );
     }
     return (
+      <div className="container">
+        <div className="controls">
+          <div className="mnv-ec-share-icons-close-open" onClick={this.toggleExpanded.bind(this)}>
+            <div className="share" data-open={this.state.open}>
+              <Icon icon="share" color={this.props.icon.color} background="none"/>
+            </div>
+            <div className="close" data-open={this.state.open}>
+              <Icon icon="close" color={this.props.icon.color} background="none"/>
+            </div>
+          </div>
+        </div>
+
       <div className={`mnv-ec-share
         ${this.props.layout}
         ${this.state.isMobile}
@@ -188,11 +186,13 @@ export default class ShareBar extends React.Component {
         ${this.props.fxType}
         ${this.state.fxState}`}>
         {this.props.titleTag ? this.props.titleTag : null}
+
         {fxPanel}
+
         <div className="mnv-ec-share-icons"
         style={(this.props.background) ? { background: this.props.background }
         : null }>
-        {iconpanel}
+
         <div className="mnv-ec-share-icons-container">
             {this.props.icons.map((icon, key) => {
               return (
@@ -205,6 +205,7 @@ export default class ShareBar extends React.Component {
             })}
             </div>
         </div>
+      </div>
       </div>
     );
   }
