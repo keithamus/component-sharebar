@@ -119,21 +119,21 @@
   height: 100%;
 }
 
-.share .Icon-share svg {
+.share .Icon-share {
   width: 37px;
   height: 37px;
   position: absolute;
   top: 0;
 }
 
-.close .Icon-close svg {
+.close .Icon-close {
   width: 37px;
   height: 37px;
   position: absolute;
   top: 0;
 }
 
-.close .Icon-close svg {
+.close .Icon-close {
   width: 37px;
   height: 37px;
   position: absolute;
