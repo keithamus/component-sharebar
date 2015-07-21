@@ -64,35 +64,35 @@
   margin-right: var(--spacing);
 }
 .mnv-ec-share a svg {
-  background: #929ca2 !important;
+  background: #929ca2;
 }
 .mnv-ec-share.vertical a {
   display: block;
   margin-bottom: var(--spacing);
 }
 .mnv-ec-share a.fb:hover svg {
-  background: #3b5998 !important;
+  background: #3b5998;
 }
 .mnv-ec-share a.twitter:hover svg {
-  background: #00aced !important;
+  background: #00aced;
 }
 .mnv-ec-share a.linkedin:hover svg {
-  background: #007bb6 !important;
+  background: #007bb6;
 }
 .mnv-ec-share a.gplus:hover svg {
-  background: #dd4b39 !important;
+  background: #dd4b39;
 }
 .mnv-ec-share a.whatsapp:hover svg {
-  background: #39b54a !important;
+  background: #39b54a;
 }
 .mnv-ec-share a.mail:hover svg {
-  background: #666666 !important;
+  background: #666666;
 }
 .mnv-ec-share a.fb:hover svg {
-  background: #3b5998 !important;
+  background: #3b5998;
 }
 .mnv-ec-share.no-mobile a.whatsapp {
-  display: none !important;
+  display: none;
 }
 
 .container {
@@ -120,22 +120,15 @@
 }
 
 .share .Icon-share {
-  width: 37px;
-  height: 37px;
+  width: 100%;
+  height: 100%;
   position: absolute;
   top: 0;
 }
 
 .close .Icon-close {
-  width: 37px;
-  height: 37px;
-  position: absolute;
-  top: 0;
-}
-
-.close .Icon-close {
-  width: 37px;
-  height: 37px;
+  width: 100%;
+  height: 100%;
   position: absolute;
   top: 0;
 }
@@ -150,4 +143,9 @@
 
 .no-touch .controls {
   pointer-events: none;
+}
+
+.controls svg {
+  width: 100%;
+  height: 100%;
 }
