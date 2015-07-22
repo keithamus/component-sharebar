@@ -35,6 +35,7 @@ export default class ShareBar extends React.Component {
           href: 'http://www.facebook.com/sharer/sharer.php?u=http://election.economist.com',
           title: 'Share on Facebook',
           className: 'fb',
+          size: "100%",
           icon: 'facebook',
           s: {
             events: 'event76',
@@ -44,6 +45,7 @@ export default class ShareBar extends React.Component {
           href: 'https://twitter.com/intent/tweet?url=http://election.economist.com',
           title: 'Share on Twitter',
           className: 'twitter',
+          size: "100%",
           icon: 'twitter',
           s: {
             events: 'event31',
@@ -53,6 +55,7 @@ export default class ShareBar extends React.Component {
           href: 'https://plus.google.com/share?url=http://election.economist.com',
           title: 'Share on Google Plus',
           className: 'gplus',
+          size: "100%",
           icon: 'googleplus',
           s: {
             events: 'event35',
@@ -62,6 +65,7 @@ export default class ShareBar extends React.Component {
           href: 'https://www.linkedin.com/cws/share?url=http://election.economist.com',
           title: 'Linked In',
           className: 'linkedin',
+          size: "100%",
           icon: 'linkedin',
           s: {
             events: 'event49',
@@ -71,6 +75,7 @@ export default class ShareBar extends React.Component {
           href: 'whatsapp://send?text=http://election.economist.com',
           title: '',
           className: 'whatsapp',
+          size: "100%",
           icon: 'whatsapp',
           s: {
             events: '',
@@ -80,6 +85,7 @@ export default class ShareBar extends React.Component {
           href: 'http://www.economist.com/node/21644150/email/',
           title: 'Email a friend',
           className: 'mail',
+          size: "100%",
           icon: 'mail',
           s: {
             events: 'event81',
@@ -170,10 +176,10 @@ export default class ShareBar extends React.Component {
         <div className="controls">
           <div className="mnv-ec-share-icons-close-open" onClick={this.toggleExpanded.bind(this)}>
             <div className="share" data-open={this.state.open}>
-              <Icon icon="share" color={this.props.icon.color} background="none"/>
+              <Icon icon="share" color={this.props.icon.color} background="none" size="100%"/>
             </div>
             <div className="close" data-open={this.state.open}>
-              <Icon icon="close" color={this.props.icon.color} background="none"/>
+              <Icon icon="close" color={this.props.icon.color} background="none" size="100%"/>
             </div>
           </div>
         </div>
@@ -197,7 +203,7 @@ export default class ShareBar extends React.Component {
             {this.props.icons.map((icon, key) => {
               return (
               <a key={key} onClick={this.handleClick.bind(this, icon)}
-              href={icon.href} title={icon.title} className={icon.className}
+              href={icon.href} title={icon.title} className={icon.className} size={icon.size}
                target="_blank">
                 <Icon icon={icon.icon} color={this.props.icon.color} />
               </a>
