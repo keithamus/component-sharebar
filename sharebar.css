@@ -141,6 +141,10 @@
   display: none;
 }
 
+.close[data-open="true"] {
+  background-color: #000;
+}
+
 .no-touch .controls {
   pointer-events: none;
 }
