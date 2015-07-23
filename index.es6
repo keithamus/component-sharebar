@@ -200,18 +200,18 @@ export default class ShareBar extends React.Component {
         : null }>
 
         <div className="mnv-ec-share-icons-container">
-          <div className="mnv-ec-share-icons-inner">
-             {this.props.icons.map((icon, key) => {
-               return (
-               <a key={key} onClick={this.handleClick.bind(this, icon)}
-               href={icon.href} title={icon.title} className={icon.className}
-                target="_blank">
-                 <Icon icon={icon.icon} color={this.props.icon.color} size={icon.size} />
-               </a>
-               );
-             })}
+        <div className="mnv-ec-share-icons-container-inner">
+            {this.props.icons.map((icon, key) => {
+              return (
+              <a key={key} onClick={this.handleClick.bind(this, icon)}
+              href={icon.href} title={icon.title} className={icon.className}
+               target="_blank">
+                <Icon icon={icon.icon} color={this.props.icon.color} size={icon.size} />
+              </a>
+              );
+            })}
             </div>
-          <div>
+            </div>
         </div>
       </div>
       </div>
