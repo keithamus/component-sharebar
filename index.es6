@@ -32,7 +32,7 @@ export default class ShareBar extends React.Component {
       },
       icons: [
         {
-          href: 'http://www.facebook.com/sharer/sharer.php?u=http://election.economist.com',
+          href: 'http://www.facebook.com/sharer/sharer.php?u=',
           title: 'Share on Facebook',
           className: 'fb',
           size: '100%',
@@ -42,7 +42,7 @@ export default class ShareBar extends React.Component {
           },
         },
         {
-          href: 'https://twitter.com/intent/tweet?url=http://election.economist.com',
+          href: 'https://twitter.com/intent/tweet?url=',
           title: 'Share on Twitter',
           className: 'twitter',
           size: '100%',
@@ -52,7 +52,7 @@ export default class ShareBar extends React.Component {
           },
         },
         {
-          href: 'https://plus.google.com/share?url=http://election.economist.com',
+          href: 'https://plus.google.com/share?url=',
           title: 'Share on Google Plus',
           className: 'gplus',
           size: '100%',
@@ -62,7 +62,7 @@ export default class ShareBar extends React.Component {
           },
         },
         {
-          href: 'https://www.linkedin.com/cws/share?url=http://election.economist.com',
+          href: 'https://www.linkedin.com/cws/share?url=',
           title: 'Linked In',
           className: 'linkedin',
           size: '100%',
@@ -72,7 +72,7 @@ export default class ShareBar extends React.Component {
           },
         },
         {
-          href: 'whatsapp://send?text=http://election.economist.com',
+          href: 'whatsapp://send?text=',
           title: '',
           className: 'whatsapp',
           size: '100%',
@@ -122,7 +122,8 @@ export default class ShareBar extends React.Component {
     if (event.target.className === 'mail') {
       window.open(event.target.getAttribute('href'), '_blank');
     } else {
-      window.open(event.target.getAttribute('href'),
+      const location = (event.target.getAttribute('href') + window.location.href);
+      window.open(location,
       event.target.getAttribute('target'),
       'scrollbars=1,resizable=1,height=550,width=550');
     }
