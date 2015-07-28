@@ -17,6 +17,7 @@ export default class ShareBar extends React.Component {
       background: React.PropTypes.string,
       icon: React.PropTypes.object,
       icons: React.PropTypes.array,
+      hostModule: React.PropTypes.string,
     };
   }
 
@@ -27,6 +28,7 @@ export default class ShareBar extends React.Component {
       useFX: false,
       fxDirection: '',
       fxType: '',
+      hostModule: '',
       icon: {
         color: '#FFFFFF',
       },
@@ -121,8 +123,13 @@ export default class ShareBar extends React.Component {
     }
     if (event.target.className === 'mail') {
       window.open(event.target.getAttribute('href'), '_blank');
-    } else {
+    } else if (this.props.hostModule !== 'wifgobbet') {
       const location = (event.target.getAttribute('href') + window.location.href);
+      window.open(location,
+      event.target.getAttribute('target'),
+      'scrollbars=1,resizable=1,height=550,width=550');
+    } else {
+      const location = (event.target.getAttribute('href'));
       window.open(location,
       event.target.getAttribute('target'),
       'scrollbars=1,resizable=1,height=550,width=550');
@@ -145,7 +152,7 @@ export default class ShareBar extends React.Component {
   }
   /* This functionality is required for touch devices when hover is not triggered */
 
-  toggleExpanded() {
+  toggleExpandShare() {
     if (this.state.open) {
       this.close();
     } else {
@@ -175,7 +182,7 @@ export default class ShareBar extends React.Component {
     return (
       <div className="container">
         <div className="controls">
-          <div className="mnv-ec-share-icons-close-open" onClick={this.toggleExpanded.bind(this)}>
+          <div className="mnv-ec-share-icons-close-open" onClick={this.toggleExpandShare.bind(this)}>
             <div className="share" data-open={this.state.open}>
               <Icon icon="share" color={this.props.icon.color} background="none" size="100%"/>
             </div>
