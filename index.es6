@@ -121,6 +121,11 @@ export default class ShareBar extends React.Component {
     } else {
       event.returnValue = false;
     }
+    if (event.stopPropagation) {
+      event.stopPropagation();
+    } else {
+      event.returnValue = false;
+    }
     if (event.target.className === 'mail') {
       window.open(event.target.getAttribute('href'), '_blank');
     } else if (this.props.hostModule !== 'wifgobbet') {
@@ -152,7 +157,17 @@ export default class ShareBar extends React.Component {
   }
   /* This functionality is required for touch devices when hover is not triggered */
 
-  toggleExpandShare() {
+  toggleExpandShare(event) {
+    if (event.preventDefault) {
+      event.preventDefault();
+    } else {
+      event.returnValue = false;
+    }
+    if (event.stopPropagation) {
+      event.stopPropagation();
+    } else {
+      event.returnValue = false;
+    }
     if (this.state.open) {
       this.close();
     } else {
