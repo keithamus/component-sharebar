@@ -73,20 +73,20 @@
     "test:watch": "npm run test:base -- -wR min"
   },
   "dependencies": {
-    "@economist/component-icon": "^3.0.1",
+    "@economist/component-icon": "^5.10.0",
     "@economist/component-omniture": "^1.0.2",
-    "react": "^0.13.3"
+    "react": "^0.14.7"
   },
   "devDependencies": {
     "@economist/component-devpack": "^2.3.0",
     "@economist/component-devserver": "^2.0.0",
     "@economist/component-testharness": "^1.1.0",
-    "babel": "^5.5.8",
-    "eslint": "^0.24.0",
-    "eslint-config-strict": "^2.4.0",
-    "eslint-plugin-filenames": "^0.1.1",
+    "babel": "^6.5.2",
+    "eslint": "^2.3.0",
+    "eslint-config-strict": "^8.5.0",
+    "eslint-plugin-filenames": "^0.2.0",
     "eslint-plugin-one-variable-per-var": "^0.0.3",
-    "eslint-plugin-react": "^2.6.3",
+    "eslint-plugin-react": "^4.2.0",
     "minifyify": "^7.0.1",
     "mocha": "^2.2.5",
     "npm-assets": "^0.1.0",
